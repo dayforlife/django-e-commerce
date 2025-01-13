@@ -133,6 +133,11 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+from django.contrib.messages import constants as messages
+MESSAGE_TABS = {
+    messages.ERROR: 'danger',
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

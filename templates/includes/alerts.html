@@ -1,0 +1,27 @@
+{% if messages %}
+
+{% for message in messages %}
+<div id="message" class="container">
+    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %} role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        {{ message }}
+    </div>
+</div>
+{% endfor %}
+
+{% endif %}
+
+<script>
+    // Запуск кода после загрузки всей страницы
+    document.addEventListener("DOMContentLoaded", function () {
+        const messageElement = document.getElementById("message");
+        if (messageElement) {
+            setTimeout(function () {
+                messageElement.style.transition = "opacity 0.5s ease";
+                messageElement.style.opacity = 0; // Анимация исчезновения
+                setTimeout(() => messageElement.remove(), 500); // Удаление элемента через 500 мс
+            }, 4000); // Задержка в 4 секунды перед исчезновением
+        }
+    });
+</script>
