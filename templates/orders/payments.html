@@ -140,7 +140,7 @@
 	let csrftoken = getCookie('csrftoken');
 	let orderID = "{{order.order_number}}"
 	let payment_method = 'PayPal'
-	let redirect_url = "#"
+	let redirect_url = "{% url 'order_complete' %}"
 	// Render the PayPal button into #paypal-button-container
 	paypal.Buttons({
 
