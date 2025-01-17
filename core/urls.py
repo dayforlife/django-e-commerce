@@ -22,7 +22,8 @@ from core.views import home
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('securelogin/', admin.site.urls),
     path('', home, name='home'),
     path('store/', include('store.urls')),
     path('cart/', include('carts.urls')),
